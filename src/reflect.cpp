@@ -11,12 +11,20 @@ void reflect(
   ////////////////////////////////////////////////////////////////////////////
   // Add your code here
   ////////////////////////////////////////////////////////////////////////////
-
-  for(int i = 0; i <height; i ++){
-      for(int j=0; j < width; j++){
-          reflected[i*width * 3 + j * 3] = input[(i+1) * width * 3 -  (j+1)*3];
-          reflected[i*width * 3 + j * 3 + 1] = input[(i+1) * width * 3 -  (j+1)*3 + 1];
-          reflected[i*width * 3 + j * 3 + 2] = input[(i+1) * width * 3 -  (j+1)*3 + 2];
+  if (num_channels == 3) {
+      for(int i = 0; i <height; i ++){
+          for(int j=0; j < width; j++){
+              reflected[i*width * 3 + j * 3] = input[(i+1) * width * 3 -  (j+1)*3];
+              reflected[i*width * 3 + j * 3 + 1] = input[(i+1) * width * 3 -  (j+1)*3 + 1];
+              reflected[i*width * 3 + j * 3 + 2] = input[(i+1) * width * 3 -  (j+1)*3 + 2];
+          }
+      }
+  }
+  else {
+      for(int i = 0; i <height; i ++){
+          for(int j=0; j < width; j++){
+              reflected[i * width + j] = input[(i + 1) * width -  (j + 1)];
+          }
       }
   }
 }

@@ -1,5 +1,5 @@
 #include "simulate_bayer_mosaic.h"
-
+// implement: BGRG
 void simulate_bayer_mosaic(
   const std::vector<unsigned char> & rgb,
   const int & width,
